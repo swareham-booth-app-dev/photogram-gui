@@ -19,4 +19,13 @@ class UsersController < ApplicationController
     redirect_to("/users/"+ new_user.username.to_s)
   end
 
+  def edit
+    user_id = params.fetch("user_id")
+    input_username = params.fetch("input_username")
+    the_user = User.where({ :id => user_id })[0]
+    the_user.username = input_username
+    the_user.save
+  redirect_to("/users/"+ the_user.username.to_s)
+  end
+
 end
