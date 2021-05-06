@@ -6,8 +6,8 @@ class PhotosController < ApplicationController
   end
 
   def show
-    the_username = params.fetch("username")
-    @the_user = User.where({ :username => the_username })[0]
+    the_photo_id = params.fetch("photo_id")
+    @the_photo = Photo.where({ :id => the_photo_id })[0]
     render({ :template => "photos_templates/show.html.erb" })
   end
 
