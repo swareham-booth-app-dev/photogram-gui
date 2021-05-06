@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     the_user = User.where({ :id => user_id })[0]
     the_user.username = input_username
     the_user.save
-  redirect_to("/users/"+ the_user.username.to_s)
+    redirect_to("/users/"+ the_user.username.to_s)
   end
 
 end
