@@ -7,7 +7,8 @@ class PhotosController < ApplicationController
 
   def show
     the_photo_id = params.fetch("photo_id")
-    @the_photo = Photo.where({ :id => the_photo_id })[0]
+    matching_photos = Photo.where({ :id => the_photo_id })
+    @the_photo = matching_photos.at(0)
     render({ :template => "photos_templates/show.html.erb" })
   end
 
